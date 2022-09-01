@@ -1,0 +1,219 @@
+/* Estilização responsiva a partir da linha 166 */
+body {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+textarea:focus,
+input:focus,
+select:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+.titulo-principal {
+  max-width: fit-content;
+}
+.conteudo-principal {
+  display: flex;
+  flex-direction: row;
+  height: 100vh; /* Faz com que ocupe 100% da tela  */
+}
+.form-cria-nova-dica {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background-color: #1e195b;
+  padding: 30px 32px 30px 32px;
+}
+.input-padrao {
+  margin: 3px 0 15px 0;
+  padding: 7px;
+  border: 3px solid #d9d9d9;
+  border-radius: 5px;
+}
+.container-botoes-cria-dica {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+.botoes-cria-dica {
+  width: 150px;
+  height: 32px;
+  color: #fff;
+  border: 2px solid #d9d9d9;
+  border-radius: 64px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 27px;
+  text-align: center;
+}
+#btn-limpar {
+  background: #def010;
+}
+#btn-salvar {
+  background: #3ace5a;
+}
+.conteudo-dicas {
+  background-color: #f6f7f9;
+  flex-grow: 6;
+}
+.cards-indicativos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.card {
+  text-align: center;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 1em rgb(197, 197, 197);
+  width: 150px;
+  height: 100px;
+  margin: 30px 0 15px 0;
+}
+.card h3 {
+  margin: 10px 0 5px 0;
+  font-weight: 600;
+  font-size: 24px;
+}
+.card span {
+  font-weight: 400;
+  font-size: 40px;
+}
+.campo-pesquisa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+}
+#barra-pesquisa {
+  box-sizing: border-box;
+  width: 70%;
+  height: 36px;
+  padding: 7px;
+  border: 3px solid #1e195b;
+  border-radius: 30px;
+}
+.botoes-nav-bar {
+  font-size: 20px;
+  width: 47px;
+  height: 36px;
+  margin-left: 10px;
+  background-color: #fff;
+  border: 3px solid #1e195b;
+  border-radius: 30px;
+}
+.dados-pesquisados {
+  margin: 0;
+  padding: 0 40px;
+  overflow: auto;
+  height: calc(100vh - 214px);
+}
+.box-dados {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 0 20px 20px 20px;
+  margin: 15px 0;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 0 1em rgb(197, 197, 197);
+}
+.box-dados h2 {
+  text-align: center;
+}
+.box-dados h4 {
+  margin: 0 5px 0 0;
+}
+.box-dados-ling,
+.box-dados-cat,
+.indice-da-dica {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.box-dados-ling p,
+.box-dados-cat p {
+  margin: 0;
+}
+#dados-descricao {
+  width: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.botoes-box-dados {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: left;
+}
+.btn-cards {
+  width: 90px;
+  height: 32px;
+  color: #fff;
+  border: 2px solid #d9d9d9;
+  border-radius: 64px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 27px;
+  text-align: center;
+  background-color: #1e195b;
+}
+@media only screen and (max-device-width: 1160px) {
+  body {
+    overflow: auto;
+  }
+  .titulo-principal {
+    text-align: center;
+    max-width: 50%;
+  }
+  .conteudo-principal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .form-cria-nova-dica {
+    padding: 0 20px 10px 20px;
+    width: auto;
+  }
+  .input-padrao {
+    margin: 0 0 10px;
+    padding: 0;
+  }
+  .container-botoes-cria-dica {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .conteudo-dicas {
+    width: 100%;
+  }
+  .cards-indicativos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
+    height: 60px;
+    margin: 10px 0 10px 0;
+  }
+  .card h3 {
+    margin: 15px 10px 5px 0;
+  }
+  .card span {
+    margin: 15px 0 5px 0;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  #barra-pesquisa {
+    width: 60%;
+  }
+}
