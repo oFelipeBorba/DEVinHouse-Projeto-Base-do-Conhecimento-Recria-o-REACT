@@ -1,13 +1,13 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { LoginDataProvider } from "./contexts/useLoginData";
 
-import Home from "./Home";
+import Rotas from "./routes/Rotas";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
 root.render(
-  <StrictMode>
-    <Home />
-  </StrictMode>
+  <LoginDataProvider>
+    <Rotas />
+  </LoginDataProvider>
 );
