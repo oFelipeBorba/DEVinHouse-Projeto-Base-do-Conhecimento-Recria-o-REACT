@@ -1,26 +1,34 @@
 import { useCardCreation } from "../contexts/useCardCreation";
+import { useState } from "react";
 
 export default function Sidebar() {
   const { listCard, setListCard } = useCardCreation();
+  const [tip, setTip] = useState({});
 
-  let tip = {};
+  function limpar() {
+    setTip({
+      titulo: "",
+      linguagem: "",
+      categoria: "",
+      descricao: "",
+      video: ""
+    });
+  }
 
   function trataListCard(e) {
     e.preventDefault();
-    console.log(listCard);
     setListCard([
       ...listCard,
       {
-        listTitulo: tip.titulo,
-        listLinguagem: tip.linguagem,
-        listId: tip.id,
-        listCategoria: tip.categoria,
-        listDescricao: tip.descricao,
-        listVideo: tip.video
+        titulo: tip.titulo,
+        linguagem: tip.linguagem,
+        id: Math.random(),
+        categoria: tip.categoria,
+        descricao: tip.descricao,
+        video: tip.video
       }
     ]);
-    let btn = document.querySelector("#btn-limpar");
-    btn.click();
+    limpar();
   }
 
   return (
@@ -35,6 +43,7 @@ export default function Sidebar() {
         </h1>
         <label for="titulo-dica">Título</label>
         <input
+          value={tip.titulo}
           type="text"
           id="titulo-dica"
           class="input-padrao"
@@ -43,12 +52,16 @@ export default function Sidebar() {
           required
           placeholder="Digite um título"
           onChange={(e) => {
-            tip.titulo = e.target.value;
+            setTip({
+              ...tip,
+              titulo: e.target.value
+            });
           }}
         />
 
         <label for="linguagem-skill">Linguagem/Skill</label>
         <input
+          value={tip.linguagem}
           type="text"
           id="linguagem-skill"
           class="input-padrao"
@@ -57,19 +70,26 @@ export default function Sidebar() {
           required
           placeholder="Digite uma linguagem ou skill"
           onChange={(e) => {
-            tip.linguagem = e.target.value;
+            setTip({
+              ...tip,
+              linguagem: e.target.value
+            });
           }}
         />
 
         <label for="categoria">Categoria</label>
         <input
+          value={tip.categoria}
           list="categoria-lista"
           id="categoria"
           class="input-padrao"
           required
           placeholder="Selecione uma categoria"
           onChange={(e) => {
-            tip.categoria = e.target.value;
+            setTip({
+              ...tip,
+              categoria: e.target.value
+            });
           }}
         />
         <datalist id="categoria-lista">
@@ -81,6 +101,7 @@ export default function Sidebar() {
 
         <label for="descricao-dica">Descrição</label>
         <textarea
+          value={tip.descricao}
           id="descricao-dica"
           class="input-padrao"
           cols="40"
@@ -90,22 +111,34 @@ export default function Sidebar() {
           required
           placeholder="Escreva aqui o detalhamento da sua dica.."
           onChange={(e) => {
-            tip.descricao = e.target.value;
+            setTip({
+              ...tip,
+              descricao: e.target.value
+            });
           }}
         ></textarea>
 
         <label for="urlyoutube">Video do YouTube</label>
         <input
+          value={tip.video}
           type="text"
           id="urlyoutube"
           class="input-padrao"
           placeholder="https://suaurl.com"
           onChange={(e) => {
-            tip.video = e.target.value;
+            setTip({
+              ...tip,
+              video: e.target.value
+            });
           }}
         />
         <div class="container-botoes-cria-dica">
-          <button class="botoes-cria-dica" id="btn-limpar" type="reset">
+          <button
+            class="botoes-cria-dica"
+            id="btn-limpar"
+            type="reset"
+            onClick={limpar}
+          >
             Limpar
           </button>
           <button

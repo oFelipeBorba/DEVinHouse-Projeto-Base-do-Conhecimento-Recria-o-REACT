@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
 
-export default function TipCard({
-  titulo,
-  linguagem,
-  id,
-  categoria,
-  descricao,
-  video
-}) {
+export default function TipCard({ card }) {
+  const { titulo, linguagem, id, categoria, descricao, video } = card;
   const [ativaVideo, setAtivaVideo] = useState(false);
 
   useEffect(() => {
-    if (video !== "") {
+    if (video !== undefined) {
       setAtivaVideo(true);
     }
   }, [video]);

@@ -1,12 +1,35 @@
 import SummaryCard from "./SummaryCard";
 import { useCardCreation } from "../contexts/useCardCreation";
 
-export default function Summary({ valorRealCategoria }) {
+export default function Summary() {
   const { listCard } = useCardCreation();
 
-  let contFE, contBE, contFS, contSS;
+  let contador = {
+    fe: 0,
+    be: 0,
+    fs: 0,
+    ss: 0
+  };
 
-  // listCard.map({});
+  listCard.map((listCard) => {
+    if (listCard.listCategoria === "FrontEnd") {
+      contador.fe = contador.fe + 1;
+      return contador;
+    }
+    if (listCard.listCategoria === "BackEnd") {
+      contador.be = contador.be + 1;
+      return contador;
+    }
+    if (listCard.listCategoria === "FullStack") {
+      contador.fs = contador.fs + 1;
+      return contador;
+    }
+    if (listCard.listCategoria === "Comportamental/Soft") {
+      contador.ss = contador.ss + 1;
+      return contador;
+    }
+    return contador;
+  });
 
   return (
     <div class="cards-indicativos">
@@ -18,27 +41,23 @@ export default function Summary({ valorRealCategoria }) {
       <SummaryCard
         categoria="FrontEnd"
         refId="num-frontend"
-        valorCategoria={valorRealCategoria}
+        valorCategoria={Number(contador.fe)}
       />
       <SummaryCard
         categoria="BackEnd"
         refId="num-backend"
-        valorCategoria={valorRealCategoria}
+        valorCategoria={Number(contador.be)}
       />
       <SummaryCard
         categoria="Fullstack"
         refId="num-fullstack"
-        valorCategoria={valorRealCategoria}
+        valorCategoria={Number(contador.fs)}
       />
       <SummaryCard
         categoria="SoftSkill"
         refId="num-softskill"
-        valorCategoria={valorRealCategoria}
+        valorCategoria={Number(contador.ss)}
       />
     </div>
   );
 }
-
-Summary.defaultProps = {
-  valorRealCategoria: 0
-};

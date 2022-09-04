@@ -1,4 +1,15 @@
+import { useCardCreation } from "../contexts/useCardCreation";
+import { useState } from "react";
+
 export default function Filter() {
+  const { listCard, setListCard } = useCardCreation();
+
+  const { listaCompleta, setListaCompleta } = useState(listCard);
+
+  let listaFiltrada = [];
+
+  listCard.filter(() => {});
+
   return (
     <>
       <input

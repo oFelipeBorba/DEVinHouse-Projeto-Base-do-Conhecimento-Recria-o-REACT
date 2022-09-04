@@ -7,12 +7,13 @@ const CardCreationContext = createContext();
 const CardCreationProvider = ({ children }) => {
   const [listCard, setListCard] = useState([
     {
-      listTitulo: "Exemplo de título",
-      listLinguagem: "Java",
-      listId: Math.random(),
-      listCategoria: "Nova categoria",
-      listDescricao: "Olá mundo, estou aqui",
-      listVideo: ""
+      titulo: "Hook React useEffect",
+      linguagem: "JavaScript",
+      id: Math.random(),
+      categoria: "FrontEnd",
+      descricao:
+        "Clique no botão de vídeo para aprender mais a respeito do useEffect",
+      video: "https://pt-br.reactjs.org/docs/hooks-effect.html"
     }
   ]);
   return (
