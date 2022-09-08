@@ -4,25 +4,64 @@ import { useState } from "react";
 export default function Filter() {
   const { listCard, setListCard } = useCardCreation();
 
-  const { listaCompleta, setListaCompleta } = useState(listCard);
+  const [listaCompleta, setListaCompleta] = useState();
 
-  let listaFiltrada = [];
+  const [digitado, setDigitado] = useState("");
 
-  listCard.filter(() => {});
+  function trataFiltroAtiva(e) {
+    e.preventDefault();
+    if (listaCompleta !== listCard) {
+      setListaCompleta(listCard);
+    }
+    if (digitado !== "") {
+      setListCard(
+        listCard.filter((item) => {
+          if (
+            item.titulo
+              .toLocaleLowerCase()
+              .indexOf(digitado.toLocaleLowerCase()) !== -1 &&
+            listaCompleta !== ""
+          ) {
+            return item;
+          }
+        })
+      );
+    }
+  }
+
+  function trataFiltroDesativa(e) {
+    if (listaCompleta !== "") {
+      setListCard(listaCompleta);
+    }
+    setListaCompleta("");
+    setDigitado("");
+  }
 
   return (
-    <>
+    <form class="campo-pesquisa">
       <input
+        value={digitado}
         type="text"
         id="barra-pesquisa"
         placeholder="Digite um título para buscar..."
-      />
-      <button class="botoes-nav-bar" id="btn-pesquisa" type="submit">
+        onChange={(e) => setDigitado(e.target.value)}
+      ></input>
+      <button
+        onClick={trataFiltroAtiva}
+        class="botoes-nav-bar"
+        id="btn-pesquisa"
+        type="submit"
+      >
         O
       </button>
-      <button class="botoes-nav-bar" id="btn-apaga" type="reset">
+      <button
+        onClick={trataFiltroDesativa}
+        class="botoes-nav-bar"
+        id="btn-apaga"
+        type="reset"
+      >
         X
       </button>
-    </>
+    </form>
   );
 }

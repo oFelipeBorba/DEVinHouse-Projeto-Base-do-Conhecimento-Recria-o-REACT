@@ -12,19 +12,19 @@ export default function Summary() {
   };
 
   listCard.map((listCard) => {
-    if (listCard.listCategoria === "FrontEnd") {
+    if (listCard.categoria === "FrontEnd") {
       contador.fe = contador.fe + 1;
       return contador;
     }
-    if (listCard.listCategoria === "BackEnd") {
+    if (listCard.categoria === "BackEnd") {
       contador.be = contador.be + 1;
       return contador;
     }
-    if (listCard.listCategoria === "FullStack") {
+    if (listCard.categoria === "FullStack") {
       contador.fs = contador.fs + 1;
       return contador;
     }
-    if (listCard.listCategoria === "Comportamental/Soft") {
+    if (listCard.categoria === "Comportamental/Soft") {
       contador.ss = contador.ss + 1;
       return contador;
     }

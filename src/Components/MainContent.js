@@ -6,9 +6,7 @@ export default function MainContent() {
   return (
     <div class="conteudo-dicas">
       <Summary />
-      <form class="campo-pesquisa">
-        <Filter />
-      </form>
+      <Filter />
       <CardList />
     </div>
   );
